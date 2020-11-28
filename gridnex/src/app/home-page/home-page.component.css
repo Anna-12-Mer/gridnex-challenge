@@ -2,16 +2,12 @@
 margin-top: 10%;
 }
 
-.layer{
-    width:65%;
-    padding: 5px ;
-    justify-content: center;
-    background-color: #fff;
+.column-one{
+    width: 100%;
+    padding: 5px;
+    margin-left: -10px;
 }
 
-#featured-game {
-    padding: 20px;
-}
 .label-sort{
     color: white;
     font-family: 'Roboto-Black'!important;
@@ -119,12 +115,7 @@ position: absolute;
   color: #ff0000;
 }
 
-.layer-tow{
-    width: 100%;
-    height: 70%;
-    padding: 0px;
-    margin-left: -10px;
-}
+
 .description{
     color: white;
     font-size: large;
@@ -157,15 +148,65 @@ position: absolute;
 
 #info-btn {
  color: #cc000b;
- padding: 10px 30px;
+ padding: 10px 10px;
  border-radius: 5px;
  background: white;
  cursor:pointer;
  border: 1px !important;
 }
 /* Responsive */
-@media (min-width: 576px) and (max-width: 767.98px) {
-  .slide-box img {
+
+@media screen and (min-width: 576px){
+     .title{
+        font-size: 30px;
+    }
+    .bnt-submit[_ngcontent-c3] {
+    padding: 2% 45%;
+    line-height: 35px;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+}
+.flex-container {
+    display: flex;
+  flex-direction: row;
+}
+/* ************************************************************** */
+
+@media screen and (max-width:676px) {
+    .flex-container {
+    display: block;
+    flex-direction: column;
+  }
+     .bnt-submit{
+        padding: 3% 42%;
+  } 
+  .search{
+      float: right;
+  }
+  .description-btn{
+    margin-top: 0%;
+}
+}
+@media screen and  (min-width: 576px) and (max-width: 767.98px) {
+    .flex-container {
+    display: block;
+    flex-direction: column;
+  }
+    .search{
+      float: right;
+  }
+     .bnt-submit{
+    padding: 3% 15%;
+    line-height: 35px;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+  } 
+    .slide-box img {
     -ms-flex: 0 0 50%;
     flex: 0 0 48%;
     max-width: 48%;
@@ -176,6 +217,13 @@ position: absolute;
 }
 
 @media (min-width: 768px) and (max-width: 991.98px) {
+    .flex-container {
+    display: block;
+    flex-direction: column;
+  }
+  .search{
+      float: right;
+  }
   .slide-box img {
     -ms-flex: 0 0 33.3333%;
     flex: 0 0 33.3333%;

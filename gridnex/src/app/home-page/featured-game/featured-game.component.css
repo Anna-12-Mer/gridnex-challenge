@@ -1,0 +1,46 @@
+
+#featured-game{
+    display: block;
+}
+.available{
+    margin-top: -25%;
+    padding: inherit;
+}
+.column-one{
+    background-color: #fff;
+    width: 100%;
+    padding: 5px;
+    margin-left: -10px;
+   
+}
+.column-tow{
+    width: 87%;
+    height: 200px;
+}
+.name{
+    font-size: 80px;
+    color: white;
+    position: inherit;
+}
+.description{
+     color: white;
+    padding: inherit;
+}
+#paly-btn {
+ color: white;
+ padding: 10px 50px;
+ border-radius: 5px;
+ background: #cc000b;
+ background: -webkit-linear-gradient(to right,#ff000a,#f857a6);
+ background: linear-gradient(to right,#ff000a,#ad0041);
+ box-shadow: 0 10px 10px -2px rgba(0,0,0,.25);
+ cursor:pointer;
+ border: 1px !important;
+ margin: 10px;
+}
+/* ********************* */
+@media screen and (max-width:676px) {
+    .container{
+        display: none;
+    }
+}

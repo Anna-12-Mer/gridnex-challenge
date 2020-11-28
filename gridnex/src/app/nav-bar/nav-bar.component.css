@@ -31,38 +31,12 @@ nav {
     cursor: pointer;
     width: 170px;
     height: 47px;
-    margin-left: -14px;
 }
-
-ul {
-    display: inline-block;
-    padding: 0px;
-    margin: 0;
-    list-style: none;
-    text-align: center;
-}
-
-ul li {
-    float: left;
-    text-align: center !important;
-    display: inline-block;
-    margin-left: 10px;
-}
-
-ul li a {
-    color: #fff;
-    font-size: initial;
-    cursor: pointer;
-    font-weight: lighter !important;
-}
-
 .nav > .nav-btn {
     display: none;
   }
 
   .nav > .nav-links {
-    display: inline;
-    float: right;
     background: none;
     height: auto;
     left: auto;
@@ -70,9 +44,10 @@ ul li a {
     opacity: 1;
     position: static;
     top: auto;
-    transform: none;
+    transform: rotateY(45deg);
     visibility: visible;
-    width: auto
+    width: 55%;
+    margin-top: 1%;
   }
 
 .nav > .nav-links > a {
@@ -82,10 +57,55 @@ ul li a {
     text-decoration: none;
   }
 /* Search button */
-#search-button{
-    color: white;
-    margin-left: 100px;
+form{
+    position: absolute;
+    top: 60%;
+    left: 75%;
+    transform: translate(-50%,-50%);
+    transition: all 1s;
+    width: 50px;
+    height: 50px;
+    box-sizing: border-box;
+    padding: 5px;
 }
+
+input{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 42.5px;
+    line-height: 30px;
+    outline: 0;
+    border: 0;
+    display: none;
+    font-size: 1em;
+    border-radius: 20px;
+    padding: 0 20px;
+}
+
+.fa{
+    box-sizing: border-box;
+    top: 0;
+    right: 0;
+    color: white;
+    text-align: center;
+    transition: all 1s;
+}
+
+form:hover{
+    width: 200px;
+    cursor: pointer;
+}
+
+form:hover input{
+    display: block;
+}
+
+form:hover .fa{
+    background: none;
+}
+/*  */
 #login-btn {
     color: white;
     margin: 10px;
@@ -95,7 +115,6 @@ ul li a {
     line-height: 40px;
     text-decoration: none;
     border-radius: 10px;
-    margin-top: 0%;
 }
 #access-btn {
  color: white;
@@ -115,7 +134,9 @@ ul li a {
 .sticky-title{
   color: white;
 } */
-@media (max-width:600px) {
+
+
+@media screen and (max-width:768px) {
     .nav > .nav-btn {
       display: inline-block;
       position: absolute;
@@ -159,4 +180,45 @@ ul li a {
       height: calc(100vh - 477px);
       overflow-y: auto;
     }
+       #logo {
+        width: 140px;
+        height: 30px;
+    }
+      li#condidat-access {
+        display: none;
+    }
+
+    #access-btn {
+        display: none;
+    }
+    #login-btn{
+      display: none;
+    }
+  
   }
+  @media screen and (max-width: 600px) {
+    .nav > .nav-links {
+    background: none;
+    height: auto;
+    left: auto;
+    margin-left: auto;
+    opacity: 1;
+    position: static;
+    top: auto;
+    transform: rotateY(45deg);
+    visibility: visible;
+    font-size: small;
+
+}
+.form{
+    left: 72%;}
+
+.description-btn {
+    margin-top: 0;
+}
+
+  }
+  @media (min-width: 992px){
+.container, .container-lg, .container-md, .container-sm {
+    max-width: 1050px;
+}}

@@ -6,13 +6,15 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { HomePageComponent } from './home-page/home-page.component';
 import { FooterComponent } from './footer/footer.component';
 import { AppRoutingModule } from './app-routing.module';
+import { FeaturedGameComponent } from './home-page/featured-game/featured-game.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavBarComponent,
     HomePageComponent,
-    FooterComponent
+    FooterComponent,
+    FeaturedGameComponent
   ],
   imports: [
     BrowserModule,
