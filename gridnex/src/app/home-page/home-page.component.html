@@ -12,32 +12,21 @@
       <label class="label-sort"> Sort By : </label>
       <div class=" flex-container mb-3">
         <div class="p-2 bd-highlight">
-          <select class="form-control " id="genre">
+          <select class="form-control " name="Genre" id="genre">
             <option>Genre</option>
-            <option>Hostest</option>
-            <option>Action</option>
-            <option>Retro</option>
-            <option>Strategy</option>
-            <option>RPG</option>
+            <option *ngFor="let cat of categories" [value]="cat.categoryId">{{cat.name}}</option>
           </select>
         </div>
         <div class="p-2 bd-highlight">
           <select class="form-control " id="year">
             <option>Year</option>
-            <option>Hostest</option>
-            <option>Action</option>
-            <option>Retro</option>
-            <option>Strategy</option>
-            <option>RPG</option>
+            <option *ngFor="let year of years" [value]="year.value">{{year.value}}</option>
           </select>
         </div>
-        <div class="p-2 bd-highlight"><select class="form-control " id="lastet">
+        <div class="p-2 bd-highlight">
+          <select class="form-control " id="lastet">
             <option>Lastet</option>
-            <option>Hostest</option>
-            <option>Action</option>
-            <option>Retro</option>
-            <option>Strategy</option>
-            <option>RPG</option>
+            <option *ngFor="let rate of rates" [value]="rate">{{rate}}</option>
           </select>
         </div>
         <div class="p-2 bd-highlight ">
@@ -51,127 +40,71 @@
           </form>
         </div>
       </div>
+      <!-- End of sort by  -->
     </div>
-    <div class="pt-3">
-      <label class="label-genre"> Hotest >> </label>
-      <div class="container">
-        <div class="row">
-          <div id="carousel" class="carousel slide" data-ride="carousel">
+    <!-- List of Games By Categories -->
+    <div>
+      <div class="pt-3" *ngFor="let cat of categories; let c = index">
+        <label class="label-genre"> {{cat?.name | uppercase}} >> </label>
+        <div class="container">
+          <div id="cat{{c}}" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
-              <div class="carousel-item active">
+              <ng-container *ngFor="let game of catGames; let g = index">
+                <div class="carousel-item active" *ngIf="cat.categoryId== game.categoryId">
+                  <div class="d-none d-lg-block">
+                    <div class="slide-box">
+                      <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
+                      <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
+                      <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
+                      <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
+                    </div>
+                    <div class="row">
+                      <div class="col-md-3 d-flex justify-content-between p-3 ">
+                        <div>
+                          <label class="name-game">{{game?.game.name}}</label>
+                        </div>
+                        <!-- test ngIF Rate  -->
+                        <div class="position">
+                          <span class="fa fa-star checked"></span>
+                          <span class="fa fa-star checked"></span>
+                          <span class="fa fa-star checked"></span>
+                          <span class="fa fa-star checked"></span>
+                          <span class="fa fa-star"></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="d-none d-md-block d-lg-none">
+                    <div class="slide-box">
+                      <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
+                      <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
+                      <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
+                    </div>
+                  </div>
+                  <div class="d-none d-sm-block d-md-none">
+                    <div class="slide-box">
+                      <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
+                      <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
+                    </div>
+                  </div>
+                  <div class="d-block d-sm-none">
+                    <img class="d-block w-100" src="../../assets/games/anonymous-game.jpg" alt="First slide">
+                  </div>
+                </div>
+              </ng-container>
+
+              <!--  -->
+              <div class="carousel-item" *ngFor="let game of catGames; let g = index">
                 <div class="d-none d-lg-block">
                   <div class="slide-box">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
-                  </div>
-                  <div class="row">
-                    <div class="col-md-3 d-flex justify-content-between p-3 ">
-                      <div>
-                        <label class="name-game">Prey</label>
-                      </div>
-                      <div class="position"><span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span></div>
-                    </div>
-                    <div class="col-md-3 d-flex justify-content-between p-3">
-                      <div>
-                        <label class="name-game">Prey</label>
-                      </div>
-                      <div><span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span></div>
-                    </div>
-                    <div class="col-md-3 d-flex justify-content-between p-3">
-                      <div>
-                        <label class="name-game">Prey</label>
-                      </div>
-                      <div><span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span></div>
-                    </div>
-                    <div class="col-md-3 d-flex justify-content-between p-3">
-                      <div>
-                        <label class="name-game">Prey</label>
-                      </div>
-                      <div>
-                        <span class=" fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="d-none d-md-block d-lg-none">
-                  <div class="slide-box">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
-                  </div>
-                </div>
-                <div class="d-none d-sm-block d-md-none">
-                  <div class="slide-box">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
-                  </div>
-                </div>
-                <div class="d-block d-sm-none">
-                  <img class="d-block w-100" src="../../assets/games/anonymous-game.jpg" alt="First slide">
-                </div>
-              </div>
-              <div class="carousel-item">
-                <div class="d-none d-lg-block">
-                  <div class="slide-box">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="Second slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="Second slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="Second slide">
                     <img src="../../assets/games/anonymous-game.jpg" alt="Second slide">
                   </div>
                   <div class="row">
                     <div class="col-md-3 d-flex justify-content-between p-3 ">
                       <div>
-                        <label class="name-game">Prey</label>
+                        <label class="name-game">{{game.game.name}}</label>
                       </div>
                       <div class="position"><span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span></div>
-                    </div>
-                    <div class="col-md-3 d-flex justify-content-between p-3">
-                      <div>
-                        <label class="name-game">Prey</label>
-                      </div>
-                      <div><span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span></div>
-                    </div>
-                    <div class="col-md-3 d-flex justify-content-between p-3">
-                      <div>
-                        <label class="name-game">Prey</label>
-                      </div>
-                      <div><span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span></div>
-                    </div>
-                    <div class="col-md-3 d-flex justify-content-between p-3">
-                      <div>
-                        <label class="name-game">Prey</label>
-                      </div>
-                      <div>
-                        <span class="fa fa-star checked"></span>
                         <span class="fa fa-star checked"></span>
                         <span class="fa fa-star checked"></span>
                         <span class="fa fa-star checked"></span>
@@ -196,676 +129,25 @@
                   <img class="d-block w-100" src="../../assets/games/anonymous-game.jpg" alt="Second slide">
                 </div>
               </div>
+              <!--  -->
             </div>
-            <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+            <a class="carousel-control-prev" href="#cat{{c}}" role="button" data-slide="prev">
               <span class="carousel-control-prev-icon" aria-hidden="true"></span>
               <span class="sr-only">Previous</span>
             </a>
-            <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+            <a class="carousel-control-next" href="#cat{{c}}" role="button" data-slide="next">
               <span class="carousel-control-next-icon" aria-hidden="true"></span>
               <span class="sr-only">Next</span>
             </a>
           </div>
           <div class="separation-class d-flex justify-content-center"></div>
+
         </div>
-      </div>
-      <!-- Action list -->
-      <label class="label-genre"> Action >> </label>
-      <div class="container">
-        <div class="row">
-          <div id="carousel" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <div class="d-none d-lg-block">
-                  <div class="slide-box">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
-                  </div>
-                  <div class="row">
-                    <div class="col-md-3 d-flex justify-content-between p-3 ">
-                      <div>
-                        <label class="name-game">Prey</label>
-                      </div>
-                      <div class="position"><span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span></div>
-                    </div>
-                    <div class="col-md-3 d-flex justify-content-between p-3">
-                      <div>
-                        <label class="name-game">Prey</label>
-                      </div>
-                      <div><span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span></div>
-                    </div>
-                    <div class="col-md-3 d-flex justify-content-between p-3">
-                      <div>
-                        <label class="name-game">Prey</label>
-                      </div>
-                      <div><span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span></div>
-                    </div>
-                    <div class="col-md-3 d-flex justify-content-between p-3">
-                      <div>
-                        <label class="name-game">Prey</label>
-                      </div>
-                      <div>
-                        <span class=" fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="d-none d-md-block d-lg-none">
-                  <div class="slide-box">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
-                  </div>
-                </div>
-                <div class="d-none d-sm-block d-md-none">
-                  <div class="slide-box">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
-                  </div>
-                </div>
-                <div class="d-block d-sm-none">
-                  <img class="d-block w-100" src="../../assets/games/anonymous-game.jpg" alt="First slide">
-                </div>
-              </div>
-              <div class="carousel-item">
-                <div class="d-none d-lg-block">
-                  <div class="slide-box">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="Second slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="Second slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="Second slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="Second slide">
-                  </div>
-                  <div class="row">
-                    <div class="col-md-3 d-flex justify-content-between p-3 ">
-                      <div>
-                        <label class="name-game">Prey</label>
-                      </div>
-                      <div class="position"><span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span></div>
-                    </div>
-                    <div class="col-md-3 d-flex justify-content-between p-3">
-                      <div>
-                        <label class="name-game">Prey</label>
-                      </div>
-                      <div><span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span></div>
-                    </div>
-                    <div class="col-md-3 d-flex justify-content-between p-3">
-                      <div>
-                        <label class="name-game">Prey</label>
-                      </div>
-                      <div><span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span></div>
-                    </div>
-                    <div class="col-md-3 d-flex justify-content-between p-3">
-                      <div>
-                        <label class="name-game">Prey</label>
-                      </div>
-                      <div>
-                        <span class=" fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="d-none d-md-block d-lg-none">
-                  <div class="slide-box">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="Second slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="Second slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="Second slide">
-                  </div>
-                </div>
-                <div class="d-none d-sm-block d-md-none">
-                  <div class="slide-box">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="Second slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="Second slide">
-                  </div>
-                </div>
-                <div class="d-block d-sm-none">
-                  <img class="d-block w-100" src="../../assets/games/anonymous-game.jpg" alt="Second slide">
-                </div>
-              </div>
-            </div>
-            <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
-          </div>
-        </div>
-      </div>
-      <!-- Retro list -->
-      <label class="label-genre"> Retro >> </label>
-      <div class="container">
-        <div class="row">
-          <div id="carousel" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <div class="d-none d-lg-block">
-                  <div class="slide-box">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
-                  </div>
-                  <div class="row">
-                    <div class="col-md-3 d-flex justify-content-between p-3 ">
-                      <div>
-                        <label class="name-game">Prey</label>
-                      </div>
-                      <div class="position"><span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span></div>
-                    </div>
-                    <div class="col-md-3 d-flex justify-content-between p-3">
-                      <div>
-                        <label class="name-game">Prey</label>
-                      </div>
-                      <div><span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span></div>
-                    </div>
-                    <div class="col-md-3 d-flex justify-content-between p-3">
-                      <div>
-                        <label class="name-game">Prey</label>
-                      </div>
-                      <div><span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span></div>
-                    </div>
-                    <div class="col-md-3 d-flex justify-content-between p-3">
-                      <div>
-                        <label class="name-game">Prey</label>
-                      </div>
-                      <div>
-                        <span class=" fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="d-none d-md-block d-lg-none">
-                  <div class="slide-box">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
-                  </div>
-                </div>
-                <div class="d-none d-sm-block d-md-none">
-                  <div class="slide-box">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
-                  </div>
-                </div>
-                <div class="d-block d-sm-none">
-                  <img class="d-block w-100" src="../../assets/games/anonymous-game.jpg" alt="First slide">
-                </div>
-              </div>
-              <div class="carousel-item">
-                <div class="d-none d-lg-block">
-                  <div class="slide-box">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="Second slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="Second slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="Second slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="Second slide">
-                  </div>
-                  <div class="row">
-                    <div class="col-md-3 d-flex justify-content-between p-3 ">
-                      <div>
-                        <label class="name-game">Prey</label>
-                      </div>
-                      <div class="position"><span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span></div>
-                    </div>
-                    <div class="col-md-3 d-flex justify-content-between p-3">
-                      <div>
-                        <label class="name-game">Prey</label>
-                      </div>
-                      <div><span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span></div>
-                    </div>
-                    <div class="col-md-3 d-flex justify-content-between p-3">
-                      <div>
-                        <label class="name-game">Prey</label>
-                      </div>
-                      <div><span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span></div>
-                    </div>
-                    <div class="col-md-3 d-flex justify-content-between p-3">
-                      <div>
-                        <label class="name-game">Prey</label>
-                      </div>
-                      <div>
-                        <span class=" fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="d-none d-md-block d-lg-none">
-                  <div class="slide-box">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="Second slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="Second slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="Second slide">
-                  </div>
-                </div>
-                <div class="d-none d-sm-block d-md-none">
-                  <div class="slide-box">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="Second slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="Second slide">
-                  </div>
-                </div>
-                <div class="d-block d-sm-none">
-                  <img class="d-block w-100" src="../../assets/games/anonymous-game.jpg" alt="Second slide">
-                </div>
-              </div>
-            </div>
-            <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
-          </div>
-        </div>
-      </div>
-      <!-- Strategy list -->
-      <label class="label-genre"> Strategy >> </label>
-      <div class="container">
-        <div class="row">
-          <div id="carousel" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <div class="d-none d-lg-block">
-                  <div class="slide-box">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
-                  </div>
-                  <div class="row">
-                    <div class="col-md-3 d-flex justify-content-between p-3 ">
-                      <div>
-                        <label class="name-game">Prey</label>
-                      </div>
-                      <div class="position"><span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span></div>
-                    </div>
-                    <div class="col-md-3 d-flex justify-content-between p-3">
-                      <div>
-                        <label class="name-game">Prey</label>
-                      </div>
-                      <div><span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span></div>
-                    </div>
-                    <div class="col-md-3 d-flex justify-content-between p-3">
-                      <div>
-                        <label class="name-game">Prey</label>
-                      </div>
-                      <div><span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span></div>
-                    </div>
-                    <div class="col-md-3 d-flex justify-content-between p-3">
-                      <div>
-                        <label class="name-game">Prey</label>
-                      </div>
-                      <div>
-                        <span class=" fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="d-none d-md-block d-lg-none">
-                  <div class="slide-box">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
-                  </div>
-                </div>
-                <div class="d-none d-sm-block d-md-none">
-                  <div class="slide-box">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
-                  </div>
-                </div>
-                <div class="d-block d-sm-none">
-                  <img class="d-block w-100" src="../../assets/games/anonymous-game.jpg" alt="First slide">
-                </div>
-              </div>
-              <div class="carousel-item">
-                <div class="d-none d-lg-block">
-                  <div class="slide-box">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="Second slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="Second slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="Second slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="Second slide">
-                  </div>
-                  <div class="row">
-                    <div class="col-md-3 d-flex justify-content-between p-3 ">
-                      <div>
-                        <label class="name-game">Prey</label>
-                      </div>
-                      <div class="position"><span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span></div>
-                    </div>
-                    <div class="col-md-3 d-flex justify-content-between p-3">
-                      <div>
-                        <label class="name-game">Prey</label>
-                      </div>
-                      <div><span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span></div>
-                    </div>
-                    <div class="col-md-3 d-flex justify-content-between p-3">
-                      <div>
-                        <label class="name-game">Prey</label>
-                      </div>
-                      <div><span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span></div>
-                    </div>
-                    <div class="col-md-3 d-flex justify-content-between p-3">
-                      <div>
-                        <label class="name-game">Prey</label>
-                      </div>
-                      <div>
-                        <span class=" fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="d-none d-md-block d-lg-none">
-                  <div class="slide-box">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="Second slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="Second slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="Second slide">
-                  </div>
-                </div>
-                <div class="d-none d-sm-block d-md-none">
-                  <div class="slide-box">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="Second slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="Second slide">
-                  </div>
-                </div>
-                <div class="d-block d-sm-none">
-                  <img class="d-block w-100" src="../../assets/games/anonymous-game.jpg" alt="Second slide">
-                </div>
-              </div>
-            </div>
-            <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
-          </div>
-        </div>
-      </div>
-      <!-- Rpg list -->
-      <label class="label-genre"> RPG >> </label>
-      <div class="container">
-        <div class="row">
-          <div id="carousel" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-              <div class="carousel-item active">
-                <div class="d-none d-lg-block">
-                  <div class="slide-box">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
-                  </div>
-                  <div class="row">
-                    <div class="col-md-3 d-flex justify-content-between p-3 ">
-                      <div>
-                        <label class="name-game">Prey</label>
-                      </div>
-                      <div class="position"><span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span></div>
-                    </div>
-                    <div class="col-md-3 d-flex justify-content-between p-3">
-                      <div>
-                        <label class="name-game">Prey</label>
-                      </div>
-                      <div><span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span></div>
-                    </div>
-                    <div class="col-md-3 d-flex justify-content-between p-3">
-                      <div>
-                        <label class="name-game">Prey</label>
-                      </div>
-                      <div><span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span></div>
-                    </div>
-                    <div class="col-md-3 d-flex justify-content-between p-3">
-                      <div>
-                        <label class="name-game">Prey</label>
-                      </div>
-                      <div>
-                        <span class=" fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="d-none d-md-block d-lg-none">
-                  <div class="slide-box">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
-                  </div>
-                  <div class="row">
-                    <div class="col-md-3 d-flex justify-content-between p-3 ">
-                      <div>
-                        <label class="name-game">Prey</label>
-                      </div>
-                      <div class="position"><span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span></div>
-                    </div>
-                    <div class="col-md-3 d-flex justify-content-between p-3">
-                      <div>
-                        <label class="name-game">Prey</label>
-                      </div>
-                      <div><span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span></div>
-                    </div>
-                    <div class="col-md-3 d-flex justify-content-between p-3">
-                      <div>
-                        <label class="name-game">Prey</label>
-                      </div>
-                      <div><span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="d-none d-sm-block d-md-none">
-                  <div class="slide-box">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
-                  </div>
-                </div>
-                <div class="d-block d-sm-none">
-                  <img class="d-block w-100" src="../../assets/games/anonymous-game.jpg" alt="First slide">
-                </div>
-              </div>
-              <div class="carousel-item">
-                <div class="d-none d-lg-block">
-                  <div class="slide-box">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="Second slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="Second slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="Second slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="Second slide">
-                  </div>
-                  <div class="row">
-                    <div class="col-md-3 d-flex justify-content-between p-3 ">
-                      <div>
-                        <label class="name-game">Prey</label>
-                      </div>
-                      <div class="position"><span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span></div>
-                    </div>
-                    <div class="col-md-3 d-flex justify-content-between p-3">
-                      <div>
-                        <label class="name-game">Prey</label>
-                      </div>
-                      <div><span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span></div>
-                    </div>
-                    <div class="col-md-3 d-flex justify-content-between p-3">
-                      <div>
-                        <label class="name-game">Prey</label>
-                      </div>
-                      <div><span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span></div>
-                    </div>
-                    <div class="col-md-3 d-flex justify-content-between p-3">
-                      <div>
-                        <label class="name-game">Prey</label>
-                      </div>
-                      <div>
-                        <span class=" fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star checked"></span>
-                        <span class="fa fa-star"></span></div>
-                    </div>
-                  </div>
-                </div>
-                <div class="d-none d-md-block d-lg-none">
-                  <div class="slide-box">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="Second slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="Second slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="Second slide">
-                  </div>
-                </div>
-                <div class="d-none d-sm-block d-md-none">
-                  <div class="slide-box">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="Second slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="Second slide">
-                  </div>
-                </div>
-                <div class="d-block d-sm-none">
-                  <img class="d-block w-100" src="../../assets/games/anonymous-game.jpg" alt="Second slide">
-                </div>
-              </div>
-            </div>
-            <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
-          </div>
-        </div>
+        <!-- Divider -->
+        <div class="divider"><img src="../../assets/games/Divider.svg" alt="Divider"> </div>
       </div>
     </div>
+
     <!-- End of Browse Games Section  -->
     <!-- Game of the Mouth section -->
     <div class="title pt-5">

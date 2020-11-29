@@ -1,17 +1,18 @@
 nav {
-    margin-top: 5%;
-    height: 60px;
+    height: 35px;
     width: 100%;
     background-color: transparent;
     transition:500ms ease;
     background: transparent;
-    border-width: 15px 50px 1px; 
-    z-index: 100; 
- 
+    border-width: 15px 50px 1px;
+    z-index: 100;
+
+
   }
 
   .nav.scrolled{
     background:#000;
+       position: fixed;
   }
   .nav > .nav-header {
     display: inline;
@@ -27,7 +28,6 @@ nav {
     background: url(../../assets/games/logo.svg) no-repeat;
     background-size: contain;
     overflow: hidden;
-    text-indent: 100%;
     cursor: pointer;
     width: 170px;
     height: 47px;
@@ -128,12 +128,12 @@ form:hover .fa{
  border: 1px !important;
 }
 
-  /* .sticky {
+  .sticky {
     background: #6b4974c4;
 }
 .sticky-title{
   color: white;
-} */
+}
 
 
 @media screen and (max-width:768px) {
@@ -194,7 +194,7 @@ form:hover .fa{
     #login-btn{
       display: none;
     }
-  
+
   }
   @media screen and (max-width: 600px) {
     .nav > .nav-links {
@@ -219,6 +219,4 @@ form:hover .fa{
 
   }
   @media (min-width: 992px){
-.container, .container-lg, .container-md, .container-sm {
-    max-width: 1050px;
-}}
+}
