@@ -1,0 +1,15 @@
+
+div {
+
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.wrapper{
+  background: url('src/assets/Background.jpg') no-repeat  fixed;
+  height: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}

@@ -129,12 +129,12 @@ form:hover .fa{
  border: 1px !important;
 }
 
-  .sticky {
+  /* .sticky {
     background: #6b4974c4;
 }
 .sticky-title{
   color: white;
-}
+} */
 
 
 @media screen and (max-width:768px) {
@@ -157,13 +157,13 @@ form:hover .fa{
       display: block;
       width: 25px;
       height: 10px;
-      border-top: 2px solid #eee;
+      border-top: 2px solid #cc000b;
     }
     .nav > .nav-links {
       position: absolute;
       display: block;
       width: 100%;
-      background-color: #333;
+      background-color: #cc000b;
       height: 0px;
       transition: all 0.3s ease-in;
       overflow-y: hidden;
@@ -173,14 +173,20 @@ form:hover .fa{
     .nav > .nav-links > a {
       display: block;
       width: 100%;
+      color: #cc000b;
+      margin-left: 20px;
     }
     .nav > #nav-check:not(:checked) ~ .nav-links {
       height: 0px;
     }
     .nav > #nav-check:checked ~ .nav-links {
-      height: calc(100vh - 477px);
       overflow-y: auto;
+       background: #fff;
+      background: -webkit-linear-gradient(to right,#fff,#fff);
+      background: linear-gradient(to right,#fff,#fff);
+      box-shadow: 0 10px 10px -2px rgba(0,0,0,.25);
     }
+
        #logo {
         width: 140px;
         height: 30px;

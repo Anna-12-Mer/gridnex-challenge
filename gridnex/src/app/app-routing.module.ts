@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   { path: '', loadChildren: './games-layout/games-layout.module#GamesLayoutModule' },
   { path: 'games', loadChildren: './games-layout/games-layout.module#GamesLayoutModule' },
+  { path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule' },
   { path: '**', redirectTo: 'games' },
 ];
 

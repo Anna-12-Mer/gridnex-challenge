@@ -1,0 +1,22 @@
+.wrapper{
+  height: 100%;
+  width: 100%;
+  background-color: #f7f9fe;
+}
+
+.main {
+    padding-left: 60px; /* Same as the width of the sidenav */
+    background-color: #f7f9fe;
+    height: 100%;
+  }
+.sidebar {
+    height: 100%;
+    width: 60px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #ffffff;
+    overflow-x: hidden;
+    padding-top: 16px;
+  }
