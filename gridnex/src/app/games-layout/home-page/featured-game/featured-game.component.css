@@ -13,9 +13,24 @@
     margin-left: -10px;
 
 }
+.zoom-effect figure img {
+	-webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+.zoom-effect figure:hover img {
+	-webkit-transform: scale(1.09);
+	transform: scale(1.09);
+}
 .column-tow{
     width: 100%;
     height: 200px;
+    	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+.column-tow:hover img {
+	width: 350px;
 }
 .name{
     font-size: 80px;
