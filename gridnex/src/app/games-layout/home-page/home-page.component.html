@@ -1,4 +1,4 @@
-<section>
+<section [@routerTransition]>
   <div class="container home">
     <div class="title">
       Featured Game
@@ -35,7 +35,8 @@
 
         <div class="ml-auto p-2 bd-highlight">
           <form class="search">
-            <input type="text" placeholder="Search..">
+            <input class="form-control" type="text" placeholder="Search.." [(ngModel)]="searchText"
+              [ngModelOptions]="{standalone: true}">
             <span class="fa fa-search form-control-font-awsome"></span>
           </form>
         </div>
@@ -45,26 +46,27 @@
     <!-- List of Games By Categories -->
     <div>
       <div class="pt-3" *ngFor="let cat of categories; let c = index">
-        <label class="label-genre"> {{cat?.name | uppercase}} >> </label>
+        <label class="label-genre" *ngIf="cat.length != 0"> {{cat?.name | uppercase}} >> </label>
         <div class="container">
           <div id="cat{{c}}" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
-              <ng-container *ngFor="let game of catGames; let g = index">
-                <div class="carousel-item active" *ngIf="cat.categoryId== game.categoryId">
+              <ng-container>
+                <div class="carousel-item active">
                   <div class="d-none d-lg-block">
                     <div class="slide-box">
-                      <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
-                      <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
-                      <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
-                      <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
+                      <img src="../../../assets/games/anonymous-game.jpg">
+                      <img src="../../../assets/games/anonymous-game.jpg">
+                      <img src="../../../assets/games/anonymous-game.jpg">
+                      <img src="../../../assets/games/anonymous-game.jpg">
                     </div>
                     <div class="row">
-                      <div class="col-md-3 d-flex justify-content-between p-3 ">
-                        <div>
+                      <div *ngFor="let game of catGames| filter:searchText"
+                        class="col-md-3 d-flex justify-content-between p-3 ">
+                        <div *ngIf="cat.categoryId== game.categoryId && game != null ">
                           <label class="name-game">{{game?.game.name}}</label>
                         </div>
                         <!-- test ngIF Rate  -->
-                        <div class="position">
+                        <div class="position" *ngIf="cat.categoryId== game.categoryId && game != null ">
                           <span class="fa fa-star checked"></span>
                           <span class="fa fa-star checked"></span>
                           <span class="fa fa-star checked"></span>
@@ -76,35 +78,40 @@
                   </div>
                   <div class="d-none d-md-block d-lg-none">
                     <div class="slide-box">
-                      <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
-                      <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
-                      <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
+                      <img src="../../../assets/games/anonymous-game.jpg" alt="First slide">
+                      <img src="../../../assets/games/anonymous-game.jpg" alt="First slide">
+                      <img src="../../../assets/games/anonymous-game.jpg" alt="First slide">
                     </div>
                   </div>
                   <div class="d-none d-sm-block d-md-none">
                     <div class="slide-box">
-                      <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
-                      <img src="../../assets/games/anonymous-game.jpg" alt="First slide">
+                      <img src="../../../assets/games/anonymous-game.jpg" alt="First slide">
+                      <img src="../../../assets/games/anonymous-game.jpg" alt="First slide">
                     </div>
                   </div>
                   <div class="d-block d-sm-none">
-                    <img class="d-block w-100" src="../../assets/games/anonymous-game.jpg" alt="First slide">
+                    <img class="d-block w-100" src="../../../assets/games/anonymous-game.jpg" alt="First slide">
                   </div>
                 </div>
               </ng-container>
 
               <!--  -->
-              <div class="carousel-item" *ngFor="let game of catGames; let g = index">
+              <div class="carousel-item">
                 <div class="d-none d-lg-block">
                   <div class="slide-box">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="Second slide">
+                    <img src="../../../assets/games/anonymous-game.jpg" alt="Second slide">
+                    <img src="../../../assets/games/anonymous-game.jpg" alt="Second slide">
+                    <img src="../../../assets/games/anonymous-game.jpg" alt="Second slide">
+                    <img src="../../../assets/games/anonymous-game.jpg" alt="Second slide">
                   </div>
                   <div class="row">
-                    <div class="col-md-3 d-flex justify-content-between p-3 ">
-                      <div>
+                    <div *ngFor="let game of catGames; let g = index"
+                      class="col-md-3 d-flex justify-content-between p-3 ">
+                      <div *ngIf="cat.categoryId== game.categoryId && game != null ">
                         <label class="name-game">{{game.game.name}}</label>
                       </div>
-                      <div class="position"><span class="fa fa-star checked"></span>
+                      <div class="position" *ngIf="cat.categoryId== game.categoryId && game != null "><span
+                          class="fa fa-star checked"></span>
                         <span class="fa fa-star checked"></span>
                         <span class="fa fa-star checked"></span>
                         <span class="fa fa-star checked"></span>
@@ -114,19 +121,19 @@
                 </div>
                 <div class="d-none d-md-block d-lg-none">
                   <div class="slide-box">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="Second slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="Second slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="Second slide">
+                    <img src="../../../assets/games/anonymous-game.jpg" alt="Second slide">
+                    <img src="../../../assets/games/anonymous-game.jpg" alt="Second slide">
+                    <img src="../../../assets/games/anonymous-game.jpg" alt="Second slide">
                   </div>
                 </div>
                 <div class="d-none d-sm-block d-md-none">
                   <div class="slide-box">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="Second slide">
-                    <img src="../../assets/games/anonymous-game.jpg" alt="Second slide">
+                    <img src="../../../assets/games/anonymous-game.jpg" alt="Second slide">
+                    <img src="../../../assets/games/anonymous-game.jpg" alt="Second slide">
                   </div>
                 </div>
                 <div class="d-block d-sm-none">
-                  <img class="d-block w-100" src="../../assets/games/anonymous-game.jpg" alt="Second slide">
+                  <img class="d-block w-100" src="../../../assets/games/anonymous-game.jpg" alt="Second slide">
                 </div>
               </div>
               <!--  -->
@@ -144,7 +151,7 @@
 
         </div>
         <!-- Divider -->
-        <div class="divider"><img src="../../assets/games/Divider.svg" alt="Divider"> </div>
+        <div class="divider"><img src="../../../assets/games/Divider.svg" alt="Divider"> </div>
       </div>
     </div>
 
@@ -157,7 +164,7 @@
       <div class="container ">
         <div class="row">
           <div class="col-md-7">
-            <img class="column-one" src="../../assets/games/anonymous-game.jpg">
+            <img class="column-one" src="../../../assets/games/anonymous-game.jpg">
             <div class="d-flex justify-content-between p-3">
               <div class="description-name">
                 <label class="description-name">

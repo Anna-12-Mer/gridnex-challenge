@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { GamesService } from '../services/games.service';
+import { GamesService } from '../../services/games.service';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
   selector: 'app-home-page',
@@ -10,6 +10,7 @@ import { GamesService } from '../services/games.service';
 })
 export class HomePageComponent implements OnInit {
 
+  public searchText;
   public games: any = [];
   public catGames: any = [];
   public categories: any = [];
@@ -23,6 +24,7 @@ export class HomePageComponent implements OnInit {
     public router: Router,) { }
 
   ngOnInit(): void {
+    console.log("here i'm");
     this.getGames();
     this.getAllCategories();
     // ****
@@ -70,4 +72,10 @@ export class HomePageComponent implements OnInit {
 
     });
   }
+  // ** Sorting By Gender ... Year .. Lastet *** sorting FrontEnd ** //
+
+  // onSubmitSortBy(cat,year,lastet){
+  //   this.getAllCategories();
+
+  // }
 }

@@ -10,7 +10,11 @@ margin-top: 10%;
 .divider{
   text-align: center;
 }
-
+.no-data {
+    color: white;
+    font-family: 'Roboto-Black'!important;
+    font-weight: bold;
+}
 .label-sort{
     color: white;
     font-family: 'Roboto-Black'!important;
@@ -190,21 +194,24 @@ form.search input[type=text] {
      .bnt-submit{
         padding: 3% 42%;
   }
-  .search{
-      float: right;
-  }
+ .form-control-font-awsome {
+width: 18.375rem;
+}
   .description-btn{
     margin-top: 0%;
 }
+
+
 }
 @media screen and  (min-width: 576px) and (max-width: 767.98px) {
     .flex-container {
     display: block;
     flex-direction: column;
   }
-    .search{
-      float: right;
-  }
+
+  .form-control-font-awsome {
+width: 18.375rem;
+}
      .bnt-submit{
     padding: 3% 15%;
     line-height: 35px;
@@ -228,9 +235,10 @@ form.search input[type=text] {
     display: block;
     flex-direction: column;
   }
-  .search{
-      float: right;
-  }
+
+  .form-control-font-awsome {
+width: 18.375rem;
+}
   .slide-box img {
     -ms-flex: 0 0 33.3333%;
     flex: 0 0 33.3333%;

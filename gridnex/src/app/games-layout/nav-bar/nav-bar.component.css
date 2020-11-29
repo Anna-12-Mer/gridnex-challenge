@@ -25,7 +25,7 @@ nav {
   }
   #logo {
     display: block;
-    background: url(../../assets/games/logo.svg) no-repeat;
+    background: url(../../../assets/games/logo.svg) no-repeat;
     background-size: contain;
     overflow: hidden;
     cursor: pointer;
@@ -115,6 +115,7 @@ form:hover .fa{
     line-height: 40px;
     text-decoration: none;
     border-radius: 10px;
+    cursor:pointer;
 }
 #access-btn {
  color: white;
