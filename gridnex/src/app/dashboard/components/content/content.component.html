@@ -5,7 +5,7 @@
   <hr class="solid">
 
   <div class="container  center ">
-    <form>
+    <form [formGroup]="gameForm" (submit)="addGame()">
       <div class="row">
         <div class="col-lg-12 col-lg-centered columns">
           <div class="row">
@@ -13,19 +13,19 @@
               <div class="input-icons">
                 <i class="fa fa-user icon">
                 </i>
-                <input class="input-field" type="text" placeholder="Game Name">
+                <input class="input-field" type="text" placeholder="Game Name" formControlName="name">
               </div>
             </div>
             <div class="col-lg-6 columns">
-              <input type="date" placeholder="dd/mm/yyyy" autocomplete="off" />
+              <input type="date" placeholder="dd/mm/yyyy" autocomplete="off" formControlName="release_date" />
             </div>
           </div>
           <div class="row">
             <div class="col-lg-6 columns">
-              <input type="text" placeholder="Description" autocomplete="off" />
+              <input type="text" placeholder="Description" autocomplete="off" formControlName="description" />
             </div>
             <div class="col-lg-6 columns">
-              <input type="text" placeholder="Link" autocomplete="off" />
+              <input type="text" placeholder="Link" autocomplete="off" formControlName="link" />
             </div>
           </div>
           <div class="row">
@@ -33,7 +33,7 @@
               <div class="input-icons">
                 <i class="fa fa-credit-card icon">
                 </i>
-                <input class="input-field" type="text" placeholder="Video link">
+                <input class="input-field" type="text" placeholder="Video link" formControlName="video">
               </div>
 
             </div>
@@ -47,15 +47,14 @@
           <div class="row">
             <div class="col-lg-6 columns">
               <label for="category">Category</label>
-              <input type="text" autocomplete="off" />
+              <select class="form-control" formControlName="category_name">
+                <option *ngFor="let cat of categories" [value]="cat.categoryId">{{cat.name}}</option>
+              </select>
             </div>
             <div class="col-lg-6 columns">
               <label for="studio">Studio</label>
-              <select>
-                <option></option>
-                <option value="portfolio">d1</option>
-                <option value="app">d2</option>
-                <option value="store">d3</option>
+              <select class="form-control" formControlName="studio_name">
+                <option *ngFor="let st of studio" [value]="st">{{st}}</option>
               </select>
             </div>
           </div>
@@ -63,23 +62,17 @@
             <div class="col-lg-6 columns">
               <label for="developer">Developer</label>
 
-              <select>
-                <option></option>
-                <option value="portfolio">d1</option>
-                <option value="app">d2</option>
-                <option value="store">d3</option>
+              <select class="form-control" formControlName="developer_name">
+                <option *ngFor="let dev of developers" [value]="dev">{{dev}}</option>
               </select>
             </div>
             <div class="col-lg-6 columns">
               <label for="platform">Platform</label>
-              <select>
-                <option></option>
-                <option value="portfolio">d1</option>
-                <option value="app">d2</option>
-                <option value="store">d3</option>
+              <select class="form-control" formControlName="platform_name">
+                <option *ngFor="let plat of platforms" [value]="plat">{{plat}}</option>
               </select>
               <div class="row">
-                <button type="button" class="btn btn-primary save-btn"><i class="fa fa-save"></i> Save</button>
+                <button type="submit" class="btn btn-primary save-btn"><i class="fa fa-save"></i> Save</button>
               </div>
             </div>
           </div>
