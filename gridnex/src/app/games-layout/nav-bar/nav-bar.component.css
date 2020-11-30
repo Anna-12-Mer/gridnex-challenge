@@ -57,7 +57,7 @@ nav {
     text-decoration: none;
   }
 /* Search button */
-form{
+nav form{
     position: absolute;
     top: 60%;
     left: 75%;
@@ -69,7 +69,7 @@ form{
     padding: 5px;
 }
 
-input{
+nav input{
     position: absolute;
     top: 0;
     left: 0;
@@ -84,7 +84,7 @@ input{
     padding: 0 20px;
 }
 
-.fa{
+nav .fa{
     box-sizing: border-box;
     top: 0;
     right: 0;
@@ -93,16 +93,16 @@ input{
     transition: all 1s;
 }
 
-form:hover{
+nav form:hover{
     width: 200px;
     cursor: pointer;
 }
 
-form:hover input{
+nav form:hover input{
     display: block;
 }
 
-form:hover .fa{
+nav form:hover .fa{
     background: none;
 }
 /*  */
@@ -129,12 +129,38 @@ form:hover .fa{
  border: 1px !important;
 }
 
+#login-btn-model {
+ color: white;
+ padding: 10px 30px;
+ border-radius: 5px;
+ background: #cc000b;
+ background: -webkit-linear-gradient(to right,#ff000a,#f857a6);
+ background: linear-gradient(to right,#ff000a,#ad0041);
+ box-shadow: 0 10px 10px -2px rgba(0,0,0,.25);
+ cursor:pointer;
+ border: 1px !important;
+}
+.text-err{
+    color: red;
+    font-family: 'helvetica' !important;
+}
   /* .sticky {
     background: #6b4974c4;
 }
 .sticky-title{
   color: white;
 } */
+/* ************************************ */
+
+@media (min-width: 576px) {
+  .modal-dialog {
+    max-width: 400px;
+  }
+  .modal-dialog .modal-content {
+    padding: 1rem;
+  }
+}
+
 
 
 @media screen and (max-width:768px) {

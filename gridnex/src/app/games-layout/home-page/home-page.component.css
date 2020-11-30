@@ -165,7 +165,9 @@ form.search input[type=text] {
     display: flex;
   flex-direction: row;
 }
-
+.mobile-version img{
+  display: none;
+}
 
 /* Responsive */
 
@@ -180,7 +182,9 @@ form.search input[type=text] {
 }
 
 }
-
+.play{
+  display: none;
+}
 /* ************************************************************** */
 
 @media screen and (max-width:676px) {
@@ -200,7 +204,15 @@ width: 18.375rem;
   .description-btn{
     margin-top: 0%;
 }
-
+.mobile-version img  {
+  display: block;
+  width: 104%;
+}
+.play{
+  display: block;
+    margin: auto;
+    margin-top: -50px;
+}
 
 }
 @media screen and  (min-width: 576px) and (max-width: 767.98px) {
