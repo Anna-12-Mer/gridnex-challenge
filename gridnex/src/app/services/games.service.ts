@@ -7,7 +7,7 @@ import { HttpClient } from '@angular/common/http';
 export class GamesService {
 
   public basedUrl = "https://gamecatalogapi.azurewebsites.net/api/";
-  public basedUrl_ = "https://backendcoreservice.azurewebsites.net/"
+
 
   constructor(private http: HttpClient) { }
 
@@ -31,10 +31,7 @@ export class GamesService {
   getACategorywithGames(id) {
     return this.http.get(this.basedUrl + 'Category/GetACategorywithGames/' + id);
   }
-  //*** LOGIN  ***//
-  logi(email, password) {
-    return this.http.post(this.basedUrl_ + '/api/Login/Login', { email, password });
-  }
+
   //*** ADD Games ***/
   addGames(body) {
     return this.http.post(this.basedUrl + 'Game/addnewGame', body);
